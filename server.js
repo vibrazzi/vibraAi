@@ -98,6 +98,10 @@ const generateLimiter = rateLimit({
 app.use('/api/', limiter);
 app.use('/api/generate-music', generateLimiter);
 
+app.head('/', (req, res) => {
+  res.status(200).end();
+});
+
 app.post('/api/generate-music', async (req, res) => {
   try {
     const {
