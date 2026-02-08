@@ -1,4 +1,4 @@
-# VibrAi - Plataforma de Música Eletrônica
+# VibraAi - Plataforma de Música Eletrônica
 
 Plataforma profissional para geração de música eletrônica usando Suno AI.
 
@@ -37,7 +37,28 @@ npm install
 npm run dev
 ```
 
-## 🛠️ Stack
+## � Deploy
+
+### Render
+
+O projeto está configurado para deploy no Render:
+
+1. **Backend**: Crie um serviço Web no Render
+   - **Build Command:** `npm install`
+   - **Start Command:** `node server.js`
+   - **Health Check Path:** `/` (HEAD method)
+   - **Instance Type:** Free ou Starter (para começar)
+
+2. **Frontend**: Configure como Static Site
+   - **Build Command:** `npm run build`
+   - **Publish Directory:** `dist`
+
+3. **Variáveis de Ambiente** (Environment Variables):
+   - `SUNO_API_KEY`: Sua chave da API Suno
+   - `FRONTEND_URL`: URL do seu frontend (opcional)
+   - `PORT`: Porta do servidor (padrão: 10000 no Render)
+
+## �🛠️ Stack
 
 - **Frontend**: React 18+, TypeScript, Tailwind CSS v4, Shadcn/ui
 - **State Management**: Zustand

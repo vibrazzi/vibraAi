@@ -210,7 +210,7 @@ export default function GeneratorForm() {
         delete payload.style;
       } else {
         payload.customMode = true;
-        payload.title = values.title || "VibrAi Track";
+        payload.title = values.title || "VibraAi Track";
         payload.prompt = values.lyrics || "";
 
         const styleString = selectedStyles.join(", ");

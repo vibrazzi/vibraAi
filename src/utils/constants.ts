@@ -57,7 +57,7 @@ export const VOICES = [
   "Poderosa",
 ];
 
-export interface VibrAierationParams {
+export interface VibraAierationParams {
   prompt: string;
   tags: string;
   make_instrumental: boolean;

@@ -1,5 +1,4 @@
 import { Link, useLocation } from "wouter";
-import { Music, Disc, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -8,8 +7,8 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Gerar", path: "/", icon: Music },
-    { label: "Biblioteca", path: "/library", icon: Disc },
+    { label: "Gerar", path: "/" },
+    { label: "Biblioteca", path: "/library" },
   ];
 
   return (
@@ -18,12 +17,12 @@ export default function Navbar() {
         <Link href="/">
           <a className="flex items-center gap-2 group">
             <div className="relative w-8 h-8 rounded-lg bg-linear-to-br from-primary to-secondary p-0.5 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-shadow">
-              <div className="w-full h-full bg-black/50 backdrop-blur-sm rounded-md flex items-center justify-center">
-                <Music className="w-4 h-4 text-white" />
+              <div className="w-full h-full bg-black/50 backdrop-blur-sm rounded-md flex items-center justify-center overflow-hidden">
+                <img src="/music-notes.png" alt="VibrAi Logo" className="w-4 h-4 object-contain" />
               </div>
             </div>
             <span className="font-bold text-lg tracking-tight">
-              Vibr<span className="text-primary">Ai</span>
+              Vibra<span className="text-primary">Ai</span>
             </span>
           </a>
         </Link>
@@ -31,16 +30,14 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = location === item.path;
-            const Icon = item.icon;
             return (
               <Link key={item.path} href={item.path}>
                 <a
                   className={cn(
-                    "flex items-center gap-2 text-sm font-medium transition-colors hover:text-white",
+                    "text-sm font-medium transition-colors hover:text-white",
                     isActive ? "text-primary" : "text-muted-foreground",
                   )}
                 >
-                  <Icon className="w-4 h-4" />
                   {item.label}
                 </a>
               </Link>
@@ -52,7 +49,7 @@ export default function Navbar() {
           className="md:hidden p-2 text-muted-foreground hover:text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          {isMobileMenuOpen ? <X /> : <Menu />}
+          {isMobileMenuOpen ? "✕" : "☰"}
         </button>
       </div>
 
@@ -61,10 +58,9 @@ export default function Navbar() {
           {navItems.map((item) => (
             <Link key={item.path} href={item.path}>
               <a
-                className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/5"
+                className="p-3 rounded-lg hover:bg-white/5 text-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <item.icon className="w-5 h-5 text-primary" />
                 <span className="text-lg font-medium">{item.label}</span>
               </a>
             </Link>
