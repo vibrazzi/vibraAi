@@ -4,6 +4,11 @@ import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import axios from 'axios';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -102,7 +107,8 @@ app.head('/', (req, res) => {
   res.status(200).end();
 });
 
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/api/generate-music', async (req, res) => {
   try {
@@ -222,7 +228,7 @@ app.get('/api/generate/record-info', async (req, res) => {
 const PORT = process.env.PORT || 3001;
 
 app.get('/{*splat}', (req, res) => {
-  res.sendFile('index.html', { root: '.' });
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 if (!process.env.SUNO_API_KEY) {
