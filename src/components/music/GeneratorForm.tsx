@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Mic2, Zap, Loader2, Sparkles } from "lucide-react";
+import { Mic2, Loader2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -464,7 +464,6 @@ export default function GeneratorForm() {
             </span>
           ) : (
             <span className="flex items-center gap-3">
-              <Zap className="w-5 h-5 fill-current" />
               Gerar Música
             </span>
           )}

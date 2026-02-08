@@ -27,7 +27,7 @@ export default function Navbar() {
           </a>
         </Link>
 
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-6 mr-20">
           {navItems.map((item) => {
             const isActive = location === item.path;
             return (
