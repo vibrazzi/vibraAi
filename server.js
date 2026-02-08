@@ -221,7 +221,7 @@ app.get('/api/generate/record-info', async (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 
-app.all('*', (req, res) => {
+app.get('/*', (req, res) => {
   res.sendFile('index.html', { root: '.' });
 });
 
