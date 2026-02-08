@@ -104,10 +104,6 @@ app.head('/', (req, res) => {
 
 app.use(express.static('public'));
 
-app.get('*', (req, res) => {
-  res.sendFile('index.html', { root: '.' });
-});
-
 app.post('/api/generate-music', async (req, res) => {
   try {
     const {
@@ -224,6 +220,10 @@ app.get('/api/generate/record-info', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3001;
+
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root: '.' });
+});
 
 if (!process.env.SUNO_API_KEY) {
   console.error('ERRO: SUNO_API_KEY não está configurada no arquivo .env');
