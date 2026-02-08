@@ -102,6 +102,12 @@ app.head('/', (req, res) => {
   res.status(200).end();
 });
 
+app.use(express.static('public'));
+
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root: '.' });
+});
+
 app.post('/api/generate-music', async (req, res) => {
   try {
     const {
